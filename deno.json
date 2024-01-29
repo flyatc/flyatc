@@ -1,0 +1,28 @@
+{
+  "tasks": {
+    "start": "deno run -A ./src/cli/index.ts",
+    "machineApi": "deno task machineApi:vendor && deno task machineApi:fmt && deno task machineApi:fix",
+    "machineApi:fix": "sed -i '' -E 's/from \"(.+)\";/from \"\\1.ts\"/' ./vendor/machine/**/*.ts",
+    "machineApi:fmt": "deno fmt vendor/machine",
+    "machineApi:vendor": "deno run -A npm:openapi-typescript-codegen --input https://docs.machines.dev/swagger/doc.json --output ./vendor/machine --client fetch --name MachineAPI",
+    "zeus": "deno task zeus:vendor && deno task zeus:fmt && deno task zeus:fix",
+    "zeus:fix": "sed -i '' 's/const\"/const.ts\"/' ./vendor/zeus/index.ts",
+    "zeus:fmt": "deno fmt vendor/zeus",
+    "zeus:vendor": "deno run -A npm:graphql-zeus https://api.fly.io/graphql ./vendor"
+  },
+  "imports": {
+    "cliffy": "https://deno.land/x/cliffy@v1.0.0-rc.3/command/mod.ts",
+    "table": "https://deno.land/x/cliffy@v1.0.0-rc.3/table/mod.ts",
+    "cuid": "https://esm.sh/@paralleldrive/cuid2@2.2.2",
+    "deno/fs": "https://deno.land/std@0.212.0/fs/mod.ts",
+    "deno/path": "https://deno.land/std@0.212.0/path/mod.ts",
+    "deno/yaml": "https://deno.land/std@0.212.0/yaml/mod.ts",
+    "eta": "https://deno.land/x/eta@v3.2.0/src/index.ts",
+    "fly-gql": "./vendor/zeus/index.ts",
+    "fly-machine": "./vendor/machine/index.ts",
+    "slug": "https://deno.land/x/slug@v1.1.0/mod.ts",
+    "sqlite": "https://deno.land/x/sqlite3@0.10.0/mod.ts",
+    "unique-names-generator": "https://esm.sh/unique-names-generator@4.7.1",
+    "zod": "https://deno.land/x/zod@v3.22.4/mod.ts"
+  }
+}

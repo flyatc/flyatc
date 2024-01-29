@@ -1,0 +1,10 @@
+version: 1
+name: flyatc-test
+regions:
+  ord:
+    replicas: 1
+build:
+  image: abc
+secrets:
+  ABC: "123"
+  EFG: LOL

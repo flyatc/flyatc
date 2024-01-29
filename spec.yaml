@@ -1,0 +1,62 @@
+# new
+region:
+  ord:
+    replicas: # region replicas
+    env:
+secrets:
+# existing
+name:
+kill_signal:
+kill_timeout:
+console_command:
+swap_size_mb:
+build:
+  # buildpack
+  builder: 
+  buildpacks: []
+  # image
+  image:
+  # dockerfile
+  dockerfile:
+  ignorefile:
+  build_target:
+  args:
+deploy:
+  release_command:
+  strategy:
+  max_unavailable:
+  wait_timeout:
+env:
+  MY_ENV:
+services:
+  - processes: []
+    internal_port:
+    protocol:
+    auto_stop_machines:
+    auto_start_machines:
+    min_machines_running:
+    ports:
+      - handlers: []
+        port:
+        start_port:
+        end_port:
+        force_https:
+        http_options:
+          response:
+            headers:
+          h2_backend:
+        proxy_proto_options:
+          version:
+        tls_options:
+          alpn: []
+          versions: []
+          default_self_signed:
+    concurrency:
+      type:
+      hard_limit:
+      soft_limit:
+    tcp_checks:
+      grace_period:
+      interval:
+      restart_limit:
+      timeout:
